@@ -25,13 +25,18 @@ def randimg():
     print(randimg)
     return randimg
 
+
+
 @app.route("/")
 def hellopage():
+    APP_RUNNER_ENV_VAR_01 = os.getenv('APP_RUNNER_ENV_VAR_01', 'none')
     html = f"""
 <html><br>
 <center>
 <h1><br>hello Cats!</h1></html>
 <img src="{randimg()}" width height="50%" >
+<center>
+{APP_RUNNER_ENV_VAR_01}
 </html>
 """
     return html
