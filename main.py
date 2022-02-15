@@ -26,17 +26,17 @@ def randimg():
     print(randimg)
     return randimg
 
-@app.route('/client')
-def client():
-    ip_addr = request.environ['REMOTE_ADDR']
-    return '<h1> Your IP address is:' + ip_addr
+#@app.route('/client')
+#def client():
+#    ip_addr = request.environ['REMOTE_ADDR']
+#    return '<h1> Your IP address is:' + ip_addr
 
 
 
 @app.route("/")
 def hellopage():
     APP_RUNNER_ENV_VAR_01 = os.getenv('APP_RUNNER_ENV_VAR_01', 'none')
-    ip_addr = request.environ['REMOTE_ADDR']
+    #ip_addr = request.environ['REMOTE_ADDR']
     html = f"""
 <html><br>
 <center>
@@ -44,7 +44,6 @@ def hellopage():
 <img src="{randimg()}" width height="50%" >
 <center>
 deploy version: {APP_RUNNER_ENV_VAR_01}<br>
-your ip: {ip_addr}<br>
 
 </html>
 """
