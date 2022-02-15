@@ -1,4 +1,5 @@
-from flask import Flask, render_template, make_response
+from flask import Flask, render_template, make_response, request
+#from flask import request
 from random import randint
 import os
 
@@ -25,18 +26,26 @@ def randimg():
     print(randimg)
     return randimg
 
+@app.route('/client')
+def client():
+    ip_addr = request.environ['REMOTE_ADDR']
+    return '<h1> Your IP address is:' + ip_addr
+
 
 
 @app.route("/")
 def hellopage():
     APP_RUNNER_ENV_VAR_01 = os.getenv('APP_RUNNER_ENV_VAR_01', 'none')
+    ip_addr = request.environ['REMOTE_ADDR']
     html = f"""
 <html><br>
 <center>
 <h1><br>hello Cats!</h1></html>
 <img src="{randimg()}" width height="50%" >
 <center>
-{APP_RUNNER_ENV_VAR_01}
+deploy version: {APP_RUNNER_ENV_VAR_01}<br>
+your ip: {ip_addr}<br>
+
 </html>
 """
     return html
