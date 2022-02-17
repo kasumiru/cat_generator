@@ -2,6 +2,7 @@ from flask import Flask, render_template, make_response, request
 #from flask import request
 from random import randint
 import os
+import sys
 
 app = Flask(__name__,
             static_url_path='', 
@@ -56,5 +57,10 @@ def helppage():
     return render_template('help.html')
 
 
+if sys.argv[1:]:
+    port = sys.argv[1]
+else:
+    port = 5000
+
 if __name__ == '__main__':
-   app.run(debug=False, host="0.0.0.0", port=5000)
+   app.run(debug=False, host="0.0.0.0", port=port)
