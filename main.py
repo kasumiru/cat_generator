@@ -50,6 +50,10 @@ deploy version: {APP_RUNNER_ENV_VAR_01}<br>
 """
     return html
 
+@app.route("/index")
+def helppagef():
+    url = 'UUrrRRlll lLL'
+    return render_template('index.html')
 
 
 @app.route("/help")
