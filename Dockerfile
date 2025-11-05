@@ -27,7 +27,9 @@ FROM alpine
 RUN apk add --no-cache python3 py3-pip gcc musl-dev python3-dev git && \
     python3 -m pip install --upgrade pip
 
-RUN pip install --no-cache-dir flask
+
+# RUN pip install --no-cache-dir flask
+RUN pip install --no-cache-dir flask==3.1.0
 
 RUN git clone https://github.com/kasumiru/cat_generator.git /app/cat_generator && \
     cd /app/cat_generator
