@@ -37,6 +37,7 @@ RUN if [ -f /app/cat_generator/requirements.txt ]; then \
     fi
 
 RUN echo $(date)
+RUN echo $(date)
 
 
 WORKDIR /app/cat_generator

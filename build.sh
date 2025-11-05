@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build -t kasumiru/cat_generator .
+docker build --no-cache -t kasumiru/cat_generator .
